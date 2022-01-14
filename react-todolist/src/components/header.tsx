@@ -8,7 +8,8 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "#f7f7f7",
+    backgroundColor: "#610094",
+    color: "white",
   },
 });
 
