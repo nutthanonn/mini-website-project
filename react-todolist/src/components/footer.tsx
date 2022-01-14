@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     <Box className={classes.root}>
       <Toolbar>
         <Typography sx={{ flexGrow: 1 }}>Create by Nutthanon </Typography>
-        <Tooltip title="github">
+        <Tooltip title="github" placement="top">
           <IconButton href="https://github.com/nutthanonn">
             <AiFillGithub color="white" />
           </IconButton>
