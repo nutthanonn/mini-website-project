@@ -1,6 +1,4 @@
 
-
-# dependencies
 /react-todolist/node_modules
 /react-todolist/.pnp
 .pnp.js
