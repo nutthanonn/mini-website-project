@@ -1,8 +1,10 @@
 import React from "react";
+import Body from "./components/body";
 
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { makeStyles } from "@mui/styles";
+import { DataStore } from "./store/dataStore";
 
 const useStyles = makeStyles({
   root: {
@@ -18,7 +20,7 @@ const App: React.FC = () => {
   return (
     <Box className={classes.root}>
       <CssBaseline />
-      <Box />
+      <Body store={DataStore} />
     </Box>
   );
 };
