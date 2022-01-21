@@ -19,8 +19,13 @@ const useStyles = makeStyles({
     borderRadius: 10,
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
     boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;",
+  },
+  toolScreen: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    margin: 1,
   },
 });
 
@@ -29,9 +34,11 @@ const Screen: React.FC<ScreenButtonProps> = observer(({ store }) => {
 
   return (
     <Box className={classes.root}>
-      <Toolbar sx={{ m: 0.3 }}>
-        <Typography>{store.Data}</Typography>
-        <Box sx={{ ml: 1 }}>n</Box>
+      <Toolbar className={classes.toolScreen}>
+        <Typography sx={{ ml: 1 }} variant="h4">
+          {store.Symbol}
+        </Typography>
+        <Typography variant="h3">{store.Data}</Typography>
       </Toolbar>
     </Box>
   );

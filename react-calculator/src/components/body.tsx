@@ -38,7 +38,7 @@ const Item: string[] = [
   "9",
   "8",
   "7",
-  "/",
+  "÷",
   "6",
   "5",
   "4",
@@ -51,6 +51,7 @@ const Item: string[] = [
   "0",
   ".",
   "+",
+  "=",
 ];
 
 const Body: React.FC<BodyProps> = ({ store }) => {
@@ -62,11 +63,33 @@ const Body: React.FC<BodyProps> = ({ store }) => {
         <Screen store={store} />
         <Grid container spacing={1}>
           {Item.map((item, index) => {
-            return (
-              <Grid key={index} item md={3} className={classes.gridContainer}>
-                <NumberButton txt={item} store={store} />
-              </Grid>
-            );
+            if (item !== "=") {
+              return (
+                <Grid
+                  key={index}
+                  item
+                  md={3}
+                  className={classes.gridContainer}
+                  sm={3}
+                  xs={3}
+                >
+                  <NumberButton txt={item} store={store} />
+                </Grid>
+              );
+            } else {
+              return (
+                <Grid
+                  key={index}
+                  item
+                  md={12}
+                  className={classes.gridContainer}
+                  sm={12}
+                  xs={12}
+                >
+                  <NumberButton txt={item} store={store} />
+                </Grid>
+              );
+            }
           })}
         </Grid>
       </Box>
