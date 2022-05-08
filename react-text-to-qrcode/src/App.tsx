@@ -7,9 +7,7 @@ const App: React.FC = () => {
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const val: string = event.target.value;
     const element: EventTarget & HTMLInputElement = event.currentTarget;
-    if (val.length > 3) {
-      setValue(event.target.value);
-    }
+    setValue(event.target.value);
 
     if (val.length > 20) {
       element.classList.add("w-3/6");
@@ -22,7 +20,7 @@ const App: React.FC = () => {
     <div className="flex min-h-screen items-center justify-center flex-col">
       <h1 className="text-4xl font-mono">Generate QRCode</h1>
       <div className="bg-white p-5">
-        <QRCode value={value} />
+        <QRCode value={value.length > 3 ? value : ""} />
       </div>
       <input
         type="text"
