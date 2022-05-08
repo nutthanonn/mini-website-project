@@ -1,3 +1,6 @@
-# โปรเจค React ง่ายๆไว้เขียนโค๊ดตอนเหงาๆ
+# Fun project with react
 
-`นึกแล้วต้องอ่าน`
+- Accordion
+- Calculator
+- Todolist
+- Text to QRCode
