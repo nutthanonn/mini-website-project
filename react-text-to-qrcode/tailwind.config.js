@@ -4,7 +4,12 @@ module.exports = {
     extend: {
       animation: {
         "spin-slow": "spin 3s linear infinite",
-        "scale-input": "scale(1.3, 0.4) 3s linear",
+      },
+      keyframes: {
+        spin: {
+          "0%": { transform: "rotate(-3deg)" },
+          "100%": { transform: "rotate(-3deg)" },
+        },
       },
     },
   },
