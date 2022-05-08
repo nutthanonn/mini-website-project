@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <div className="flex min-h-screen items-center justify-center flex-col">
       <h1 className="text-4xl font-mono">Generate QRCode</h1>
-      <div style={{ background: "white", padding: "16px" }}>
+      <div className="bg-white p-5">
         <QRCode value={value} />
       </div>
       <input
