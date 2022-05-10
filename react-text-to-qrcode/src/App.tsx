@@ -5,15 +5,7 @@ const App: React.FC = () => {
   const [value, setValue] = useState<string>("");
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const val: string = event.target.value;
-    const element: EventTarget & HTMLInputElement = event.currentTarget;
     setValue(event.target.value);
-
-    if (val.length > 20) {
-      element.classList.add("w-3/6");
-    } else {
-      element.classList.remove("w-3/6");
-    }
   }
 
   return (
@@ -24,7 +16,9 @@ const App: React.FC = () => {
       </div>
       <input
         type="text"
-        className="w-25 rounded-xl border-2 px-2 hover:border-blue-500 focus:border-blue-500 focus:outline-none"
+        className={`${
+          value.length > 20 ? "w-3/6" : ""
+        } w-25 rounded-xl border-2 px-2 hover:border-blue-500 focus:border-blue-500 focus:outline-none`}
         placeholder="Enter at least 3 char"
         onChange={handleChange}
       />
