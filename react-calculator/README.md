@@ -1,6 +1,6 @@
 # Calculator Project
 
-### package
+## package
 
 - Material-UI
 - MobX
