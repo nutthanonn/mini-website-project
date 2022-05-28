@@ -1,5 +1,9 @@
 import React from "react";
-import MinimalNumber from "./MinimalNumber";
+import dynamic from "next/dynamic";
+import { v4 as uuidv4 } from "uuid";
+const MinimalNumber = dynamic(() => import("../Components/MinimalNumber"), {
+  ssr: false,
+});
 
 interface BoxNumberProps {
   amountNumber?: number;
@@ -11,7 +15,18 @@ interface BoxNumberProps {
 const BoxNumber: React.FC<BoxNumberProps> = (props) => {
   const { amountNumber, width, heigh, circleSize } = props;
 
-  const items: number[] = Array.from(Array(amountNumber).keys());
+  // const items: number[] = Array.from(Array(3).keys());
+  const items: string[][] = [
+    ["on-last-y-line", "under-last-y-line"],
+    [
+      "first-x-line",
+      "on-first-y-line",
+      "on-last-y-line",
+      "under-first-y-line",
+      "under-last-y-line",
+      "last-x-line",
+    ],
+  ];
 
   return (
     <div>
@@ -31,11 +46,15 @@ const BoxNumber: React.FC<BoxNumberProps> = (props) => {
           ></div>
         </div>
         {/* MinimalNumber */}
-        <div className="flex">
+        <div className="flex flex-row space-y-2 border-2">
           {items.map((e, index) => {
-            return <MinimalNumber key={index} ChangeColor={[]} />;
-            // ChangeColor={}  -> do something
-            // ตรงนี้ต้องส่ง array ที่บอกว่า element นี้ให้เปลี่ยนสี โดยอาจจะต้องใช้ js คุมผ่าน id ของ element
+            return (
+              <MinimalNumber
+                ChangeColor={e}
+                key={index}
+                currTarget={uuidv4()}
+              />
+            );
           })}
         </div>
       </div>
