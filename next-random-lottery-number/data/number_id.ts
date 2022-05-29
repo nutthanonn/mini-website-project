@@ -18,7 +18,7 @@
 
 */
 
-interface NumberIdType {
+export interface NumberIdType {
   "0": string[];
   "1": string[];
   "2": string[];
