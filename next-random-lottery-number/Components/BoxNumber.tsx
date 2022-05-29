@@ -1,53 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { v4 as uuidv4 } from "uuid";
-import { observer } from "mobx-react";
-import { GlobalStateImpl } from "../store/globolState";
 const MinimalNumber = dynamic(() => import("../Components/MinimalNumber"), {
   ssr: false,
 });
 
 interface BoxNumberProps {
+  randomNumber: string[][];
   amountNumber: number;
-  width?: number;
-  heigh?: number;
-  circleSize?: number;
-  store: GlobalStateImpl;
+  width: string;
+  heigh: string;
+  circleSize: number;
 }
 
 // เขียน function ใน store แล้วดึงมาใช้ใน components นี้
 
-const BoxNumber: React.FC<BoxNumberProps> = observer((props) => {
-  const { amountNumber, width, heigh, circleSize, store } = props;
-  const [items, setItems] = useState<string[][]>(
-    Array.from({ length: amountNumber }, () => [])
-  );
+const BoxNumber: React.FC<BoxNumberProps> = (props) => {
+  const { amountNumber, width, heigh, randomNumber } = props;
 
-  useEffect(() => {
-    const a = store.convert_number_to_stringId("");
-    setItems(a);
-  }, []);
+  // Array.from({ length: amountNumber }, () => [])
 
   return (
     <div>
-      <div className="flex h-[217.53px] w-[899.12px] flex-col rounded-2xl bg-[#000000]">
-        <div id="circle-group" className="flex flex-row space-x-2 p-3">
-          <div
-            id="circle"
-            className="h-[17px] w-[17px] rounded-full bg-[#FF0000]"
-          ></div>
-          <div
-            id="circle"
-            className="h-[17px] w-[17px] rounded-full bg-[#FFE600]"
-          ></div>
-          <div
-            id="circle"
-            className="h-[17px] w-[17px] rounded-full bg-[#14FF00]"
-          ></div>
+      <div
+        className={`flex flex-col rounded-2xl bg-[#000000] ${width} ${heigh}`}
+      >
+        <div className="flex flex-row space-x-2 p-3">
+          <div className={`h-[17px] w-[17px] bg-[#FF0000] rounded-full`}></div>
+          <div className={`h-[17px] w-[17px] bg-[#FFE600] rounded-full`}></div>
+          <div className={`h-[17px] w-[17px] bg-[#14FF00] rounded-full`}></div>
         </div>
         {/* MinimalNumber */}
-        <div className="flex flex-row space-x-10 justify-center">
-          {items.map((e, index) => {
+        <div className="flex flex-row space-x-5 justify-center h-[100%] items-center">
+          {randomNumber.map((e, index) => {
             return (
               <MinimalNumber
                 ChangeColor={e}
@@ -60,6 +45,6 @@ const BoxNumber: React.FC<BoxNumberProps> = observer((props) => {
       </div>
     </div>
   );
-});
+};
 
 export default BoxNumber;

@@ -17,6 +17,10 @@ const allNumber: string[] = [
 
 const MinimalNumber: React.FC<MinimalNumberProps> = (props) => {
   const { ChangeColor, currTarget } = props;
+  console.log(ChangeColor);
+
+  const classElementVertical = `h-[100%] w-[10%] rounded-lg bg-[#1E1E1E]`;
+  const classElementHorizontal = `h-[15%] w-[100%] rounded-lg bg-[#1E1E1E]`;
 
   //เกิด bug เพราะหลาย element มี id ที่ซำ้กัน
 
@@ -31,41 +35,44 @@ const MinimalNumber: React.FC<MinimalNumberProps> = (props) => {
         ? eleId?.classList.add("bg-[#24FF00]")
         : eleId?.classList.add("bg-[#1E1E1E]");
     });
-  }, []);
+  }, [ChangeColor]);
 
   return (
-    <div className="m-2 flex h-max w-max flex-col">
-      <div className="flex space-x-1" id="first-box">
+    <div className="m-2 flex flex-col h-[90%] w-[10%]">
+      <div className="flex space-x-1 h-[40%] w-[100%]" id="first-box">
         <div
-          className="mt-2 h-[60.42px] w-[6.04px] rounded-lg bg-[#1E1E1E]"
+          className={`mt-2 ${classElementVertical}`}
           id={`on-first-y-line${currTarget}`}
         ></div>
         <div
-          className="h-[7.25px] w-[48.34px] rounded-lg bg-[#1E1E1E]"
+          className={classElementHorizontal}
           id={`first-x-line${currTarget}`}
         ></div>
         <div
-          className="mt-2 h-[60.42px] w-[6.04px] rounded-lg bg-[#1E1E1E]"
+          className={`mt-2 ${classElementVertical}`}
           id={`on-last-y-line${currTarget}`}
         ></div>
       </div>
-      <div className="mx-2" id="mid-box">
+      <div
+        className="w-[100%] h-[20%] flex justifly-center items-center px-1"
+        id="mid-box"
+      >
         <div
-          className="h-[7.25px] w-[48.34px] rounded-lg bg-[#1E1E1E]"
+          className="h-[20%] w-[100%] rounded-lg bg-[#1E1E1E]"
           id={`mid-x-line${currTarget}`}
         ></div>
       </div>
-      <div className="flex items-end" id="sec-box">
+      <div className="flex items-end h-[40%] w-[100%] mb-2" id="sec-box">
         <div
-          className="mb-2 h-[60.42px] w-[6.04px] rounded-lg bg-[#1E1E1E]"
+          className={`mb-2 ${classElementVertical}`}
           id={`under-first-y-line${currTarget}`}
         ></div>
         <div
-          className="mx-1 h-[7.25px] w-[48.34px] rounded-lg bg-[#1E1E1E]"
+          className={`mx-1 ${classElementHorizontal}`}
           id={`last-x-line${currTarget}`}
         ></div>
         <div
-          className="mb-2 h-[60.42px] w-[6.04px] rounded-lg bg-[#1E1E1E]"
+          className={`mb-2 ${classElementVertical}`}
           id={`under-last-y-line${currTarget}`}
         ></div>
       </div>
