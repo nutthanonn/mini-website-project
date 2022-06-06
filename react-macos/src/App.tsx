@@ -2,6 +2,7 @@ import React from "react";
 import ImageLight from "./assets/background-light.jpeg";
 import ImageDark from "./assets/background-dark.jpeg";
 import Navbar from "./Components/navbar";
+import Finder from "./Components/Finder";
 import Footer from "./Components/footer";
 
 const App: React.FC = () => {
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       style={{ backgroundImage: `url(${ImageDark})` }}
     >
       <Navbar />
+      <Finder />
       <Footer />
     </div>
   );

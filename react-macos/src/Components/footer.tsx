@@ -13,11 +13,13 @@ const Footer: React.FC = () => {
           {Items.map((i, index) => {
             return (
               <Tooltip title={i.name} arrow>
-                <div
-                  key={index}
-                  style={{ backgroundImage: `url(${i.pic})` }}
-                  className="bg-cover w-10 h-10 rounded-md"
-                ></div>
+                <div className="w-10 h-10">
+                  <div
+                    key={index}
+                    style={{ backgroundImage: `url(${i.pic})` }}
+                    className="bg-cover w-[100%] h-[100%] rounded-md"
+                  ></div>
+                </div>
               </Tooltip>
             );
           })}
