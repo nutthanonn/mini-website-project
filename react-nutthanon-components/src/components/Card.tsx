@@ -7,6 +7,8 @@ const CardCutom = styled.div`
   display: flex;
   flex-direction: column;
   width: fit-content;
+  min-width: 300px;
+  max-width: 400px;
   height: fit-content;
   border: 1px solid black;
   padding: 10px;
@@ -52,8 +54,9 @@ const CardChip = styled.div`
   height: 40px;
   margin-top: 20px;
   display: flex;
-  gap: 10px;
+  gap: 0 5px;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const Card: React.FC = () => {
@@ -67,13 +70,7 @@ const Card: React.FC = () => {
         </CardTitle>
       </CardHeader>
       <CardChip>
-        <Chip title="nutthanon" color="#fffada" />
-        <Chip title="nutthanon" color="#fffada" />
-        <Chip title="nutthanon" color="#fffada" />
-        <Chip title="nutthanon" color="#fffada" />
-        <Chip title="nutthanon" color="#fffada" />
-        <Chip title="nutthanon" color="#fffada" />
-        <Chip title="nutthanon" color="#fffada" />
+        <Chip title="Nutthanon" color="#fffada" />
       </CardChip>
     </CardCutom>
   );
