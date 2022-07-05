@@ -1,15 +1,15 @@
 import { PokemonResultsType } from "../assets/interfaces/apiPokemonName";
 
-interface resultType {
+export interface optionsType {
   label: string;
   value: string;
 }
 
 export function ConvertSelectData(data: PokemonResultsType[]) {
-  const result: resultType[] = data.map((item) => {
+  const result: optionsType[] = data.map((item) => {
     return {
-      value: item.name.toLowerCase().replace(" ", "-"),
-      label: item.name.toLowerCase(),
+      value: item.name,
+      label: item.name,
     };
   });
   return result;

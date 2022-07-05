@@ -3,6 +3,7 @@ import * as theme from "./assets/themes";
 import styled from "styled-components";
 import Provider from "./provider/AppProvider";
 import SelectPokemon from "./shared/SelectPokemon";
+import bg from "./assets/img/background.jpeg";
 
 const App: React.FC = () => {
   return (
@@ -17,9 +18,7 @@ const App: React.FC = () => {
 export default App;
 
 const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: ${(props) => props.theme.primary};
+  min-height: 100vh;
+  background-image: url(${bg});
+  background-size: cover;
 `;
