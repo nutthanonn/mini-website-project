@@ -1,3 +1,8 @@
+interface types {
+  slot: number;
+  type: { name: string; url: string };
+}
+
 export interface PokemonFormTypes {
   form_name: string;
   form_names: any;
@@ -23,10 +28,7 @@ export interface PokemonFormTypes {
     front_shiny: null | string;
     front_shiny_female: null | string;
   };
-  types: {
-    slot: number;
-    type: { name: string; url: string };
-  }[];
+  types: types[];
   version_group: {
     name: string;
     url: string;
