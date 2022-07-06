@@ -9,6 +9,8 @@ export class GlobalStoreImpl {
 
   @action
   set_pokemon_name(val: string) {
-    this.pokemonName = val
+    this.pokemonName = val;
   }
 }
+
+export const GlobalStore = new GlobalStoreImpl();

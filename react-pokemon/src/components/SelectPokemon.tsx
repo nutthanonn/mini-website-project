@@ -5,8 +5,16 @@ import { PokemonResultsType } from "../assets/interfaces/apiPokemonName";
 import { ConvertSelectData } from "../helper/convertSelectData";
 import { optionsType } from "../helper/convertSelectData";
 import styled from "styled-components";
+import { observer } from "mobx-react";
+import { GlobalStoreImpl } from "../store/globalStore";
 
-const SelectPokemon: React.FC = () => {
+interface SelectPokemonPropsType {
+  handleOpenBackDrop: () => void;
+  store: GlobalStoreImpl;
+}
+
+const SelectPokemon: React.FC<SelectPokemonPropsType> = (props) => {
+  const { handleOpenBackDrop, store } = props;
   const [listPokemon, setListPokemon] = useState<PokemonResultsType[]>([]);
   const [selectedOption, setSelectedOption] = useState<optionsType | null>(
     null
@@ -22,6 +30,10 @@ const SelectPokemon: React.FC = () => {
 
   const handelSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    if (selectedOption != null) {
+      handleOpenBackDrop();
+      store.set_pokemon_name(selectedOption.value);
+    }
   };
 
   const handleChange = (options: any) => {
@@ -41,7 +53,7 @@ const SelectPokemon: React.FC = () => {
   );
 };
 
-export default SelectPokemon;
+export default observer(SelectPokemon);
 
 const Container = styled.div`
   display: flex;
