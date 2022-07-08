@@ -1,21 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Card from "./components/Card";
+import * as themes from "./assets/themes";
+import Provider from "./provider/AppProvider";
 
-const Center = styled.div`
-  height: 100vh;
-  background: #a3a3fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+interface themesProps {
+  dark: string;
+  light: string;
+}
 
 const App: React.FC = () => {
+  const [theme, setTheme] = useState<string>("dark");
+
+  function ChangeTheme() {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
+
   return (
-    <Center>
-      <Card />
-    </Center>
+    <Provider theme={themes[theme as keyof themesProps]}>
+      <Center>
+        <LabelCustom>
+          <InputCustom
+            type="file"
+            accept="image/png, image/jpg, image/gif, image/jpeg"
+          />
+          Custom Upload
+        </LabelCustom>
+      </Center>
+    </Provider>
   );
 };
 
 export default App;
+
+const InputCustom = styled.input`
+  display: none;
+`;
+
+const LabelCustom = styled.label`
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  cursor: pointer;
+`;
+
+const Center = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
