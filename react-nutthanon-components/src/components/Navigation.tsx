@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "../assets/fish.jpeg";
+import Logo from "../assets/image/fish.jpeg";
 
 const CustomNav = styled.nav`
   position: fixed;
