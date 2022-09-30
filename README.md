@@ -1,4 +1,4 @@
-# Fun project with react
+# Fun project with react.
 
 - [Random lottery number](#random-lottery-number)
 - [Accordion](#accordion)
